@@ -7,12 +7,11 @@ form.addEventListener("submit", async (e) => {
   const userMessage = input.value.trim();
   if (!userMessage) return;
 
-  // Add user message
+  // Add user message to chat
   appendMessage(userMessage, "user");
-
   input.value = "";
 
-  // Simulate bot response for now
+  // Get bot response from your backend
   const botMessage = await getBotReply(userMessage);
   appendMessage(botMessage, "bot");
 });
@@ -26,6 +25,17 @@ function appendMessage(text, sender) {
 }
 
 async function getBotReply(userInput) {
-  // This will later call your OpenAI API
-  return "Bot says: " + userInput;
+  const response = await fetch("/api/chat", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ message: userInput }),
+  });
+
+  const data = await response.json();
+
+  if (response.ok) {
+    return data.reply;
+  } else {
+    return "⚠️ Error: " + data.error;
+  }
 }
