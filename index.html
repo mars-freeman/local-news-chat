@@ -3,10 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello</title>
+  <title>Local News Chat</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Hello from Local News Chat 👋</h1>
-  <p>This is your starting point. We'll build a chat app from here.</p>
+  <h1>📰 Local News Chatbot</h1>
+
+  <div id="chat-window">
+    <div id="chat-log"></div>
+    <form id="chat-form">
+      <input type="text" id="user-input" placeholder="Type a message..." autocomplete="off" required />
+      <button type="submit">Send</button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
