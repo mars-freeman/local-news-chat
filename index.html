@@ -9,7 +9,16 @@
 <body>
   <h1>📰 Local News Chatbot</h1>
 
-  <div id="chat-window">
+  <!-- 🔐 Login UI -->
+  <div id="auth-ui">
+    <input type="email" id="email-input" placeholder="Enter your email" required />
+    <button id="login-btn">Send Magic Link</button>
+    <button id="logout-btn" style="display: none;">Logout</button>
+    <div id="status-msg"></div>
+  </div>
+
+  <!-- 💬 Chat Interface (shown after login) -->
+  <div id="chat-window" style="display: none;">
     <div id="chat-log"></div>
     <form id="chat-form">
       <input type="text" id="user-input" placeholder="Type a message..." autocomplete="off" required />
@@ -17,6 +26,7 @@
     </form>
   </div>
 
-  <script src="script.js"></script>
+  <!-- 🔗 Load script -->
+  <script type="module" src="script.js"></script>
 </body>
 </html>

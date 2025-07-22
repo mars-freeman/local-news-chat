@@ -9,7 +9,7 @@ create table if not exists messages (
 alter table messages enable row level security;
 
 create policy "Allow all insert" on messages
-  for insert using (true);
+  for insert with check (true);  -- ✅ this line changed
 
 create policy "Allow all select" on messages
-  for select using (true);
+  for select using (true);       -- ✅ this is fine
